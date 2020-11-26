@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+
+}
+
+.header {
+    height: 50px;
+    background-color: #004499;
+    display: flex;
+    flex-direction: row;
+}
+
+.home, .projects {
+    height: 50px;
+    width: 10%;
+    font-family: 'Goldman', cursive;
+    font-size: 28px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: #111 2px 2px 10px;
+}
+
+.home:hover, .projects:hover {
+    transition: 300ms;
+    background-color: #0044FF;
+}
+
+.header-p {
+    margin-top: 7px;
+}
+
+.header-href {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    height: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profilepicture {
+    background-image: url("https://cdn.discordapp.com/avatars/339395111895040003/9315bf9cdad4bef675886687a68bfd6e.png");
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+    margin: 10px 10px 10px 10px;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    font-family: 'Goldman', cursive;
+    font-size: 45px;
+    color: #ffffff;
+    text-shadow: #111 2px 2px 10px;
+}
