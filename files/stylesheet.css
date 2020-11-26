@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #222222;
+    background-color: #111111;
     width: 100%;
     height: 100%;
 }
@@ -56,8 +56,10 @@ body {
 
 .profilepicture {
     background-image: url("https://cdn.discordapp.com/avatars/339395111895040003/9315bf9cdad4bef675886687a68bfd6e.png");
-    height: 128px;
-    width: 128px;
+    width: 20vh;
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
     border-radius: 50%;
     margin: 10px 10px 10px 10px;
 }
@@ -69,7 +71,7 @@ body {
 
 .name {
     font-family: 'Goldman', cursive;
-    font-size: 45px;
+    font-size: 7vh;
     color: #ffffff;
     text-shadow: #111 2px 2px 10px;
 }
