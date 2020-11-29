@@ -1,5 +1,7 @@
 body{
     background: #1f253c;
+    margin: 0;
+    padding: 0;
 }
 .strand{
     text-align: center;
