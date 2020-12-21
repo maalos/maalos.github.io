@@ -57,7 +57,7 @@ body {
     color: #ffffff;
     text-align: center;
     height: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     cursor: default;
 }
 
@@ -78,7 +78,7 @@ body {
 .table-href {
     text-decoration: none;
     color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 20px;
 }
 
