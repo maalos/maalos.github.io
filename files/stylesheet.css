@@ -62,6 +62,14 @@ body {
     color: #ffffff;
     font-family: 'JetBrains Mono', monospace;
     font-size: 3.04vh;
+    cursor: default;
+    transition: 200ms;
+}
+
+.table-href:hover {
+    transition: 200ms;
+    color: #999999;
+    cursor: pointer;
 }
 
 .data {
