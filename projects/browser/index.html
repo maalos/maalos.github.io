@@ -1,9 +1,11 @@
-<html><head><script defer>
-var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+<html><head><script>
+function init(){
+  var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
-if(!isChrome) {
-	document.body.innerHTML = "your browser isn't chrome, that means ur gay.";
-} else {
-	document.body.innerHTML = "yay u using chrome";
+  if(!isChrome) {
+      document.body.innerHTML = "your browser isn't chrome, that means ur gay.";
+  } else {
+      document.body.innerHTML = "yay u using chrome";
+  }
 }
-</script></head><body></body></html>
+</script></head><body onload="init()"></body></html>
