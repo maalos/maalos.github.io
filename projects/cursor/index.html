@@ -1,10 +1,34 @@
 <html><head><style>
- .blinking-cursor {
-  font-weight: 300;
-  font-size: 4vh;
-  color: #000000;
-  animation: 1s blink step-end infinite;
+ body {
+  background: #222;
+  color: lime;
+  font-family: monospace;
+}
+
+#header {
+  display: flex;
+  align-items: baseline;
+  margin: 15px;
+}
+
+
+ /* blinking cursor */
+#cursor {
+  background: lime;
+  line-height: 17px;
+  margin-left: 3px;
+  -webkit-animation: blink 0.8s infinite;
+  width: 7px;
+  height: 15px;
+}
+
+@-webkit-keyframes blink {
+  0% {background: #222}
+  50% {background: lime}
+  100% {background: #222}
+}
+
 }
  </style></head><body>
-<span class="blinking-cursor">|</span>
+<div id="header"> <p>maalos@kali:~$ </p><div id="cursor"></div></div>
  </body></html>
