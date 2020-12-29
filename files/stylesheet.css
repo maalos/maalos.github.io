@@ -234,3 +234,7 @@ body {
     background-color: #004499;
     transition: 200ms;
 }
+
+.white {
+    color: #FFFFFF;   
+}
