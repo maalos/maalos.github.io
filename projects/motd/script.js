@@ -4,5 +4,5 @@ fetch('https://maalos.ga')
     let objectURL = URL.createObjectURL(blob);
     let motd = new Text();
     motd.src = objectURL;
-    document.getElementById('motd').innerHTML(motd)
+    document.getElementById('motd').innerHTML = motd;
 });
