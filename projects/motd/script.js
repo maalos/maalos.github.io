@@ -1,4 +1,4 @@
-fetch('https://maalos.ga')
+fetch('https://maalos.ga/projects/motd/motd.txt')
   .then(res => res.blob())
   .then(blob => {
     let objectURL = URL.createObjectURL(blob);
