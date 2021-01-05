@@ -57,6 +57,11 @@ body {
     border-radius: 50%;
 }
 
+img {
+    width="9.37vw";
+    height="9.37vw";
+}
+
 .table-href {
     text-decoration: none;
     color: #ffffff;
