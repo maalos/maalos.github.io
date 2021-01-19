@@ -1,12 +1,23 @@
 <style>
 #dc-tag {
-    display: none;
+    
 }
     
-#dc-link:hover + #dc-tag {
+#dc-box {
+    display: none;
+    transition: 200ms;
+    border: 3px solid #FFFFFF;
+    border-radius: 15px;
+    padding: 5px;
+}
+    
+#dc-link:hover + #dc-box {
     display: inline;
+    transition: 200ms;
 }
 </style>
 
 <a id="dc-link">Discord</a>
-<div id="dc-tag">maalos#9853</div>
+<div id="dc-box">
+<div id="dc-tag">maalos#1337</div>
+</div>
