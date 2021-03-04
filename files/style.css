@@ -3,6 +3,7 @@
     body {
         user-select: none;
         background-color: #000000;
+        text-align: center;
     }
 
     h1 {
@@ -21,7 +22,6 @@
         text-decoration: none;
         color: #444444;
         transition: 100ms;
-        text-align: center;
     }
 
     p {
