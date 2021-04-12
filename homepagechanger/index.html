@@ -1,0 +1,56 @@
+<h1>IF YOU'RE USING FIREFOX/I.E. DO NOT CLICK THE BUTTON BELOW, UNLESS YOU WANT TO EXPERIENCE YOUR HOMEPAGE CHANGING TO MAALOS.GA.</h1><br>
+<h2>IF YOU'RE USING CHROMIUM BASED BROWSERS YOU'LL BE GOOD</h2><br><br>
+<button onclick="setHomepageToMaalosGa()">CHANGE HOMEPAGE TO MAALOS.GA</button><br>
+<button onclick="setHomepageToGoogle()">CHANGE HOMEPAGE TO GOOGLE.COM</button>
+<script type="text/javascript">
+function setHomepageToMaalosGa()
+{
+ if (document.all)
+    {
+        document.body.style.behavior='url(#default#homepage)';
+  document.body.setHomePage('https://www.maalos.ga');
+
+    }
+    else if (window.sidebar)
+    {
+    if(window.netscape)
+    {
+         try
+   {  
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  
+         }  
+         catch(e)  
+         {  
+            alert("your browser is blocking this action");  
+         }
+    } 
+    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+    prefs.setCharPref('browser.startup.homepage','https://maalos.ga');
+ }
+}
+function setHomepageToGoogle()
+{
+ if (document.all)
+    {
+        document.body.style.behavior='url(#default#homepage)';
+  document.body.setHomePage('https://www.google.com');
+
+    }
+    else if (window.sidebar)
+    {
+    if(window.netscape)
+    {
+         try
+   {  
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  
+         }  
+         catch(e)  
+         {  
+            alert("your browser is blocking this action");  
+         }
+    } 
+    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+    prefs.setCharPref('browser.startup.homepage','https://google.com');
+ }
+}
+</script>
