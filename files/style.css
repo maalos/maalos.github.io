@@ -11,9 +11,17 @@ a {
   text-align: center;
 }
 
-.header h1{
+.header h1 {
   color: #C6DDF0;
   font-family: Hack;
+  margin: 0;
+}
+
+.header h3 {
+  color: #ADB6C4;
+  font-family: Hack;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .footer {
