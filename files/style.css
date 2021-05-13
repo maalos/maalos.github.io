@@ -24,14 +24,6 @@ a {
   margin-bottom: 10px;
 }
 
-.footer {
-  text-align: center;
-  color: #C6DDF0;
-  font-family: Hack;
-  position: fixed;
-  bottom: 8px;
-}
-
 .content {
   padding: 5px;
   display: flex;
@@ -44,7 +36,7 @@ a {
   margin: 5px;
   color: #E5E7E6;
   font-family: Hack;
-  min-width: 32%;
+  width: 100%;
   box-shadow: 0px 0px 5px 1px #111111;
 }
 
