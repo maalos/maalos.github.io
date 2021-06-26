@@ -1,19 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
 
 body {
-  background-color: #2A2B2A;
+  background-image: url("https://maalos.ga/files/sky.jpg");
   user-select: none;
   font-family: 'Source Code Pro', monospace;
 }
 
 a {
   text-decoration: none;
-  font-family: 'Source Code Pro', monospace;
 }
 
 .header {
   text-align: center;
-  font-family: 'Source Code Pro', monospace;
 }
 
 .header h1 {
@@ -31,26 +29,23 @@ a {
   padding: 5px;
   display: flex;
   flex-wrap: wrap;
-  font-family: 'Source Code Pro', monospace;
 }
 
 .item {
   transition: 200ms;
   padding: 5px;
   margin: 5px;
+  background-color: rgba(198, 221, 240, 0.1);
   color: #E5E7E6;
   width: 100%;
-  box-shadow: 0px 0px 5px 1px #111111;
-  font-family: 'Source Code Pro', monospace;
 }
 
 .item:hover {
   transition: 200ms;
-  background-color: #222222;
+  background-color: rgba(198, 221, 240, 0.2);
 }
 
 .name {
   font-weight: 1000;
   font-size: 18px;
-  font-family: 'Source Code Pro', monospace;
 }
