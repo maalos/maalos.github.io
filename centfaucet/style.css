@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
+
+body {
+  background-color: #1f2024;
+  user-select: none;
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+}
+
+.wip {
+  color: #ffffff;
+  background-color: red;
+  padding: 2px;
+  text-align: center;
+}
+
+.header {
+  color: #ffffff;
+  text-align: center;
+}
+
+.header h6 {
+  margin: 0;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.content {
+  text-align: center;
+}
+
+.getbtn {
+  background: linear-gradient(311deg, rgba(255,1,69,1) 0%, rgba(255,172,1,1) 100%);
+  border-radius: 25px;
+  padding: 5px;
+  font-size: 28px;
+  width: 150px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.getbtn:hover {
+  transform: scale(0.95);
+  transition: 300ms;
+}
+
+.ducoicon {
+  border-radius: 500px;
+  height: 100px;
+  width: auto;
+  margin: 20px;
+}
+
+.nameinput {
+  outline: none;
+  border: 2px solid #444444;
+  background-color: #555555;
+  width: 250px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+  box-shadow: 0px 0px 5px 0px #555555;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+#claimresult {
+  color: #ffffff;
+}
