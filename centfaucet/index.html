@@ -27,7 +27,7 @@
       username = document.getElementById("username").value
 
       xhr = new XMLHttpRequest();
-      xhr.open("GET", "http://" + serveraddress + "/claim/" + username);
+      xhr.open("GET", "https://" + serveraddress + "/claim/" + username);
       xhr.onloadend = function () { alert(xhr.responseText); document.getElementById("claimresult").innerHTML = xhr.responseText; };
       xhr.send();
       document.getElementById("claimresult").innerHTML = "Sent request to server!"
