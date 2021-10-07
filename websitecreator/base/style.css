@@ -1,0 +1,42 @@
+        #body {
+            user-select: none;
+            background-color: #fff;
+            color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #siteheader {
+            height: 70px;
+            background-color: #00a896;
+            text-align: center;
+            position: relative;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f0f3bd;
+        }
+
+        #siteheader h1 {
+            margin: 0;
+        }
+
+        #sitecontainer {
+            height: 480px;
+            background-color: #05668d;
+            padding: 10px;
+            color: #fff;
+            font-size: 20px;
+            word-wrap: break-word;
+        }
+
+        #sitefooter {
+            height: 30px;
+            background-color: #028090;
+            position: relative;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f0f3bd;
+        }
