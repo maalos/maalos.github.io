@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>builder</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        textarea {
+            border: 2px solid black;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        #isitecode {
+            width: 1000px;
+            height: 450px;
+        }
+
+        #site {
+            user-select: none;
+            border: 2px solid black;
+            height: 600px;
+            width: 800px;
+            background-color: #fff;
+            color: #000;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #siteheader {
+            height: 70px;
+            background-color: #00a896;
+            text-align: center;
+            position: relative;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f0f3bd;
+        }
+
+        #siteheader h1 {
+            margin: 0;
+        }
+
+        #sitecontainer {
+            height: 480px;
+            background-color: #05668d;
+            padding: 10px;
+            color: #fff;
+            font-size: 20px;
+            word-wrap: break-word;
+        }
+
+        #sitefooter {
+            height: 30px;
+            background-color: #028090;
+            position: relative;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f0f3bd;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <p><b>Header:</b></p>
+        <textarea type="text" id="isiteheader" maxlength="20"></textarea>
+        <p><b>Body:</b></p>
+        <textarea type="text" id="isitecontainer"></textarea>
+        <p><b>Footer:</b></p>
+        <textarea type="text" id="isitefooter" maxlength="70"></textarea>
+        <p><b>Code:</b></p>
+        <textarea readonly type="text" id="isitecode"></textarea>
+    </form>
+    <div id="site">
+        <div id="siteheader">
+            <h1 id="siteheader-h1"></h1>
+        </div>
+        <div id="sitecontainer"></div>
+        <div id="sitefooter"></div>
+    </div>
+    
+    <script>
+        setInterval(getInputValue, 1000);
+        function getInputValue() {
+            document.getElementById("siteheader-h1").innerHTML = document.getElementById("isiteheader").value;
+            document.getElementById("sitecontainer").innerHTML = document.getElementById("isitecontainer").value;
+            document.getElementById("sitefooter").innerHTML = document.getElementById("isitefooter").value;
+            document.getElementById("isitecode").innerHTML = "<html>\n<head>\n  <title>generator</title>\n<link rel='stylesheet' href='https://maalos.ga/websitecreator/base/style.css'>\n</head>\n<body>" + document.getElementById("site").innerHTML + "</body>\n</html>";
+        }
+    </script>
+</body>
+
+</html>
