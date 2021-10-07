@@ -1,7 +1,8 @@
-        #body {
+        body {
             user-select: none;
             background-color: #fff;
             color: #000;
+            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -28,6 +29,7 @@
             color: #fff;
             font-size: 20px;
             word-wrap: break-word;
+            height: calc(100% - 120px);
         }
 
         #sitefooter {
