@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
 
 body {
-  background-image: url("https://maalos.ga/files/sky.jpg");
+  background-image: url("https://maalos.github.io/files/sky.jpg");
   user-select: none;
   font-family: 'Source Code Pro', monospace;
 }
