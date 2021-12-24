@@ -50,7 +50,7 @@ a {
   font-size: 18px;
 }
 
-marquee {
+#footer {
   position: fixed;
   bottom: 5px;
   color: #ccc;
