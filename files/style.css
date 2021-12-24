@@ -49,3 +49,9 @@ a {
   font-weight: 1000;
   font-size: 18px;
 }
+
+marquee {
+  position: fixed;
+  bottom: 5px;
+  color: #ccc;
+}
