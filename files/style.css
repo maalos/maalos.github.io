@@ -7,6 +7,12 @@ body {
     padding-bottom: 20px;
 }
 
+@media (pointer: coarse) {
+    body {
+        width: 90%;
+    }
+}
+
 h1, h2, h3 {
     text-align: center;
 }
@@ -44,4 +50,17 @@ a:visited {
 
 #blogcontainer a {
     text-decoration: none;
+}
+
+code { 
+    background-color: #444;
+    color: #eee;
+    padding: 2px;
+}
+
+pre {
+    white-space: pre-wrap;
+    background-color: #444;
+    color: #eee;
+    padding: 10px;
 }
