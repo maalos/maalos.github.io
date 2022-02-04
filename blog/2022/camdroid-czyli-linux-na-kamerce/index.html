@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maalos.dev/files/style.css">
+    <title>maalos.dev - Blog</title>
+</head>
+<body>
+    <div id="container">
+        <h1>maalos.dev</h1>
+        <h3>Blog</h3>
+        <div id="items">
+            <a href="https://maalos.dev/pl/">Dom</a> | 
+            <a href="https://maalos.dev/pl/omnie/">O mnie</a> | 
+            <a href="https://maalos.dev/blog/">Blog</a> | 
+            <a href="https://maalos.dev/pl/telefony/">Telefony</a> | 
+            <a href="https://maalos.dev/pl/komputery/">Komputery</a> | 
+            <a href="https://maalos.dev/pl/poradniki/">Poradniki</a> | 
+            <a href="https://maalos.dev/pl/software/">Software</a> | 
+            <a href="https://discord.gg/a3mQv6UwmD">Discord</a> | 
+            <a href="https://maalos.dev/pl/pliki/">Pliki</a>
+        </div>
+        <div id="blogcontainer">
+            <h3>Camdroid, czyli Linux na kamerce [04.02]</h3>
+            <p>
+                Furibee F60, czyli <span title="99zł na Allegro w 2018"><u>tania</u></span> kamerka sportowa, będąca klonem jakiegoś tam SJCAM'a, z dość ciekawymi bebechami, albowiem kryje się w niej <a href="https://linux-sunxi.org/V3"><u>Allwinner V3</u></a> <a href="https://www.allwinnertech.com/uploads/pdf/2016051514324557.pdf"><u>(opis procesora wg producenta)</u></a> została kupiona przeze mnie około 2018 roku. Minęły 2 lata, zanim odkryłem, że jest ona wykrywana przez <a href="https://developer.android.com/studio/command-line/adb"><u>ADB</u></a>, co zresztą stało się przypadkiem. Udało mi się zdumpować część pamięci wewnętrzenej na dysk, i jak się okazało, siedzi tam Camdroid OS, czyli bardzo lekka wersja Androida na co wskazywałyby pliki BUILD i nie tylko, o których będzie co nieco potem.
+                <br><br>
+                <img src="1.jpg" alt="">
+                <img src="2.jpg" alt="">
+                <br><br>
+                <p>Ziemianie już kilka lat temu rozgryźli tą marną konstrukcję, co zresztą pokazuje ten <a href="https://dashcamtalk.com/forum/threads/hacking-q3h-allwinner-v3-camdroid.20507/"><u>19-sto stronicowy wątek na zagranicznym forum</u></a> o kamerkach samochodowych. Npisano w nim m.in., że Camdroid OS zainstalowany na tym plastikowym chińskim pudle bazuje na Androidzie 4.2.2 z doinstalowanym <a href="https://minigui.fmsoft.cn/"><u>MiniGUI</u></a> jako interfejs graficzny. Jeśli chodzi o specyfikację, to nasz ARM Cortex-A7 taktuje do 1.2GHz, operuje 128MB DRAM'u DDR? o taktowaniu do 800MHz i ma do dyspozycji ?8MB? pamięci ?SPI NOR?, podzielonej na 8 partycji. Na pokładzie znajduje się również <a href="https://linux-sunxi.org/images/8/8f/XR819_Datasheet_V1.0-EN.pdf"><u>układ scalony odpowiedzialny za bezprzewodowe połączenie WLAN o oznaczeniu XR819</u></a>.</p>
+            </p>
+            <h4>No fajnie, ale jak się dostać do tego Camdroid'a?</h4>
+            <p>
+                Pobieramy <a href="https://developer.android.com/studio/command-line/adb"><u>ADB</u></a>, wypakowujemy folder i w wypakowanym folderze otwieramy cmd lub inną konsolę. Podłączamy naszą kamerkę do komputera, i wybieramy tryb ładowania (w innych też zadziała). Wchodzimy w okno konsoli i wpisujemy <code>adb devices</code>. Jeśli pokazuje się jakieś ID/data i po tym device, np <code>20080411    device</code>, to znaczy, że komputer wykrywa kamerę i możemy przejść dalej. Żeby już w końcu wejść do naszego systemu wpisujemy <code>adb shell</code>. W ten sposób mamy dostęp do konsoli kamery, oraz dostajemy uprawnienia root'a.
+                <br>
+                Pora zabrać się za konkrety, czyli chociażby partycje na naszej pamięci ?eMMC?.<br>
+                <pre>
+root@camdroid:/ # cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00040000 00001000 "uboot"
+mtd1: 001c0000 00001000 "boot"
+mtd2: 004c0000 00001000 "system"
+mtd3: 00080000 00001000 "cfg"
+mtd4: 00010000 00001000 "boot_logo"
+mtd5: 00010000 00001000 "shutdown_logo"
+mtd6: 00010000 00001000 "env"
+mtd7: 00008000 00001000 "private"</pre>
+                No dobra, i co z tym zrobimy? W sumie to nic, taka teorytyczna wiedza nic nam nie da. Jednak ile finalnie mamy miejsca "na dysku" do której możemy się łatwo dostać? Sprawdźmy.
+                <pre>
+root@camdroid:/ # df
+Filesystem             Size   Used   Free   Blksize
+/dev                    15M    32K    15M   4096
+/system                  4M     4M     0K   131072
+/data                  512K    56K   456K   4096
+/mnt/extsd              28G    68M    28G   65536
+                </pre>
+                Wychodzi na to, że wewnętrzna pamięć dostępna dla nas ma 20MB.<br>
+                Koniec zamulania, pora na coś ciekawego; puścmy muzykę przez głośnik kamerki. Wrzuciłem piosenkę w formacie wave na kartę microSD w trybie USB i użyłem tinyplay do odtworzenia jej.
+                <pre>
+root@camdroid:/ # tinyplay "/mnt/extsd/blog/kazdy ziom zbiera zlom.wav"
+Playing sample: 2 ch, 48000 hz, 16 bit</pre>
+                Pomimo bycia niesamowicie cichym i słabym głośnikiem piosenkę udało się odtworzyć.<br>
+                <video src="1.mp4" height="200" controls></video><br>
+                Pora na jakąś komunikację z cywilizacją - podłączymy się do mojego nieszyfrowanego hotspota WiFi. Potrzebujemy do tego minimum <code>iwconfig</code>, znajdującego się w katalogu <code>/system/bin/</code>. Nasza kamerka ma owy program, dzięki czemu możemy podłączyć się do sieci bez zabezpieczeń lub z zabezpieczeniem WEP (WPA i WPA2 wymagają majstrowania w pliku <code>/etc/wifi/wpa_supplicant.conf</code>). Kolejno wprowadzone przeze mnie komendy w celu połączenia z nieszyfrowaną siecią "maalos":
+                <pre>
+iwlist scanning
+iwconfig wlan0 mode Managed
+iwconfig wlan0 essid maalos</pre>
+                Po wprowadzeniu ostatniej komendy zostałem połączony z siecią.<br>
+                Szczerze: znudziło mi się już trochę to wszystko, i chce mi się już spać. Zrobiłem backupa używając <a href="https://mega.nz/file/pYdwRDbD#z38wXSegTxw6Lk03yr27Yz4BB8TP4lsI_rGVeQqPFP4"><u>narzędzia do robienia backupów firmware'u fla kamerek z zagranicznego forum</u></a>, wrzuciłem <a href="https://mega.nz/folder/kAlHUSpK#Bfx2On7TzHEMXKP3z4_tIg"><u>firmware na mega.nz</u></a> i postanowiłem, że starczy na dziś. Wyczekujcie drugiej części, w której wgram firmware na kartę microSD w celu zbootowania z niej oraz postaram się skomunikować w jakiś sposób przez WiFi z kamerą.
+            </p>
+            <br>
+            <h5 style="margin: 0;">Zasoby i źródła</h5>
+            <p style="font-size: 11px; color: #aaa;">
+                <a href="https://licheeone.readthedocs.io/zh/latest/camdroid/camdroid_build.html">https://licheeone.readthedocs.io/zh/latest/camdroid/camdroid_build.html</a><br>
+                <a href="https://linux-sunxi.org/V3">https://linux-sunxi.org/V3</a><br>
+                <a href="https://www.allwinnertech.com/uploads/pdf/2016051514324557.pdf">https://www.allwinnertech.com/uploads/pdf/2016051514324557.pdf</a><br>
+                <a href="https://linux-sunxi.org/images/f/f5/Allwinner_V3_Datasheet_V1.1.pdf">https://linux-sunxi.org/images/f/f5/Allwinner_V3_Datasheet_V1.1.pdf</a><br>
+                <a href="https://dashcamtalk.com/forum/threads/hacking-q3h-allwinner-v3-camdroid.20507/">https://dashcamtalk.com/forum/threads/hacking-q3h-allwinner-v3-camdroid.20507/</a><br>
+                <a href="https://www.datasheets360.com/part/detail/k4b2g1646q-bck0/804073935451964570/">https://www.datasheets360.com/part/detail/k4b2g1646q-bck0/804073935451964570/</a><br>
+                <a href="https://linux-sunxi.org/images/8/8f/XR819_Datasheet_V1.0-EN.pdf">https://linux-sunxi.org/images/8/8f/XR819_Datasheet_V1.0-EN.pdf</a><br>
+                <a href="https://www.goprawn.com/forum/allwinner-cams/25-allwinner-v3-s-imx179-s-ov4689-and-gc2023-action-cameras">https://www.goprawn.com/forum/allwinner-cams/25-allwinner-v3-s-imx179-s-ov4689-and-gc2023-action-cameras</a><br>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
