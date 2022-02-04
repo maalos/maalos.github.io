@@ -7,9 +7,25 @@ body {
     padding-bottom: 20px;
 }
 
+#bc1 {
+    visibility: visible;
+}
+#bc2 {
+    visibility: hidden;
+}
+
 @media (pointer: coarse) {
     body {
         width: 90%;
+    }
+    span:hover:after {
+        content: " " attr(title)
+    }
+    #bc1 {
+        visibility: hidden;
+    }
+    #bc2 {
+        visibility: visible;
     }
 }
 
