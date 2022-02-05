@@ -30,7 +30,7 @@
                 <img src="1.jpg" alt="">
                 <img src="2.jpg" alt="">
                 <br><br>
-                <p>Ziemianie już kilka lat temu rozgryźli tą marną konstrukcję, co zresztą pokazuje ten <a href="https://dashcamtalk.com/forum/threads/hacking-q3h-allwinner-v3-camdroid.20507/"><u>19-sto stronicowy wątek na zagranicznym forum</u></a> o kamerkach samochodowych. Npisano w nim m.in., że Camdroid OS zainstalowany na tym plastikowym chińskim pudle bazuje na Androidzie 4.2.2 z doinstalowanym <a href="https://minigui.fmsoft.cn/"><u>MiniGUI</u></a> jako interfejs graficzny. Jeśli chodzi o specyfikację, to nasz ARM Cortex-A7 taktuje do 1.2GHz, operuje 128MB DRAM'u DDR? o taktowaniu do 800MHz i ma do dyspozycji ?8MB? pamięci ?SPI NOR?, podzielonej na 8 partycji. Na pokładzie znajduje się również <a href="https://linux-sunxi.org/images/8/8f/XR819_Datasheet_V1.0-EN.pdf"><u>układ scalony odpowiedzialny za bezprzewodowe połączenie WLAN o oznaczeniu XR819</u></a>.</p>
+                <p>Ziemianie już kilka lat temu rozgryźli tą marną konstrukcję, co zresztą pokazuje ten <a href="https://dashcamtalk.com/forum/threads/hacking-q3h-allwinner-v3-camdroid.20507/"><u>19-sto stronicowy wątek na zagranicznym forum</u></a> o kamerkach samochodowych. Napisano w nim m.in., że Camdroid OS zainstalowany na tym plastikowym chińskim pudle bazuje na Androidzie 4.2.2 z doinstalowanym <a href="https://minigui.fmsoft.cn/"><u>MiniGUI</u></a> jako interfejs graficzny. Jeśli chodzi o specyfikację, to nasz ARM Cortex-A7 taktuje do 1.2GHz, operuje 128MB DRAM'u DDR3? o taktowaniu do 800MHz i ma do dyspozycji 32MB pamięci eMMC, podzielonej na 8 partycji. Na pokładzie znajduje się również <a href="https://linux-sunxi.org/images/8/8f/XR819_Datasheet_V1.0-EN.pdf"><u>układ scalony odpowiedzialny za bezprzewodowe połączenie WLAN o oznaczeniu XR819</u></a>.</p>
             </p>
             <h4>No fajnie, ale jak się dostać do tego Camdroid'a?</h4>
             <p>
@@ -64,13 +64,13 @@ root@camdroid:/ # tinyplay "/mnt/extsd/blog/kazdy ziom zbiera zlom.wav"
 Playing sample: 2 ch, 48000 hz, 16 bit</pre>
                 Pomimo bycia niesamowicie cichym i słabym głośnikiem piosenkę udało się odtworzyć.<br>
                 <video src="1.mp4" height="200" controls></video><br>
-                Pora na jakąś komunikację z cywilizacją - podłączymy się do mojego nieszyfrowanego hotspota WiFi. Potrzebujemy do tego minimum <code>iwconfig</code>, znajdującego się w katalogu <code>/system/bin/</code>. Nasza kamerka ma owy program, dzięki czemu możemy podłączyć się do sieci bez zabezpieczeń lub z zabezpieczeniem WEP (WPA i WPA2 wymagają majstrowania w pliku <code>/etc/wifi/wpa_supplicant.conf</code>). Kolejno wprowadzone przeze mnie komendy w celu połączenia z nieszyfrowaną siecią "maalos":
+                Pora na jakąś komunikację z cywilizacją - podłączymy się do mojego nieszyfrowanego hotspota WiFi. Potrzebujemy do tego minimum <code>iwconfig</code>, znajdującego się w katalogu <code>/system/bin/</code>. Nasza kamerka ma ów program, dzięki czemu możemy podłączyć się do sieci bez zabezpieczeń lub z zabezpieczeniem WEP (WPA i WPA2 wymagają majstrowania w pliku <code>/etc/wifi/wpa_supplicant.conf</code>). Kolejno wprowadzone przeze mnie komendy w celu połączenia z nieszyfrowaną siecią "maalos":
                 <pre>
 iwlist scanning
 iwconfig wlan0 mode Managed
 iwconfig wlan0 essid maalos</pre>
                 Po wprowadzeniu ostatniej komendy zostałem połączony z siecią.<br>
-                Szczerze: znudziło mi się już trochę to wszystko, i chce mi się już spać. Zrobiłem backupa używając <a href="https://mega.nz/file/pYdwRDbD#z38wXSegTxw6Lk03yr27Yz4BB8TP4lsI_rGVeQqPFP4"><u>narzędzia do robienia backupów firmware'u fla kamerek z zagranicznego forum</u></a>, wrzuciłem <a href="https://mega.nz/folder/kAlHUSpK#Bfx2On7TzHEMXKP3z4_tIg"><u>firmware na mega.nz</u></a> i postanowiłem, że starczy na dziś. Wyczekujcie drugiej części, w której wgram firmware na kartę microSD w celu zbootowania z niej oraz postaram się skomunikować w jakiś sposób przez WiFi z kamerą.
+                Szczerze: znudziło mi się już trochę to wszystko, i chce mi się już spać. Zrobiłem backupa używając <a href="https://mega.nz/file/pYdwRDbD#z38wXSegTxw6Lk03yr27Yz4BB8TP4lsI_rGVeQqPFP4"><u>narzędzia do robienia backupów firmware'u dla kamerek z zagranicznego forum</u></a>, wrzuciłem <a href="https://mega.nz/folder/kAlHUSpK#Bfx2On7TzHEMXKP3z4_tIg"><u>firmware na mega.nz</u></a> i postanowiłem, że starczy na dziś. Wyczekujcie drugiej części, w której wgram firmware na kartę microSD w celu zbootowania z niej oraz postaram się skomunikować w jakiś sposób przez WiFi z kamerą.
             </p>
             <br>
             <h5 style="margin: 0;">Zasoby i źródła</h5>
