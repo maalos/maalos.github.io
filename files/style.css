@@ -29,6 +29,27 @@ body {
     }
 }
 
+@media (max-width: 320px) {
+    body {
+        width: 100% !important;
+        font-size: 12px;
+    }
+    #blogcontainer {
+        margin: 0 0 0 0 !important;
+        padding: 0 !important;
+        width: 100%  !important; 
+    }
+    span:hover:after {
+        content: " " attr(title)
+    }
+    #bc1 {
+        visibility: hidden;
+    }
+    #bc2 {
+        visibility: visible;
+    }
+}
+
 h1, h2, h3 {
     text-align: center;
 }
